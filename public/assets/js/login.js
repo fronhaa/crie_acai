@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000';
+const apiUrl = 'https://crie-acai-4.onrender.com';
 
 const btnSubmeter = document.querySelector('#btn-submit');
 const divAlertWarning = document.querySelector('.alert-warning') || document.querySelector('.alert-success');
