@@ -9,8 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.client = void 0;
-exports.dbQuery = dbQuery;
+exports.dbQuery = exports.client = void 0;
 const pg_1 = require("pg");
 console.log('conexão');
 exports.client = new pg_1.Client({
@@ -32,3 +31,4 @@ function dbQuery(sql, values) {
         }
     });
 }
+exports.dbQuery = dbQuery;
