@@ -18,6 +18,10 @@ let myModal = new bootstrap.Modal(modal, {
 
 function lists() {
 
+    document.querySelector('body').createElement('meu-payload');
+
+    let meuPayload = document.querySelector('meu-payload');
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -57,8 +61,13 @@ function lists() {
                 editar(event.target);
             });
         });
+
+        meuPayload.remove();
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Error:', error)
+        meuPayload.remove();
+    });
 }
 
 function renderForm() {
