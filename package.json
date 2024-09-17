@@ -2,14 +2,15 @@
   "name": "crie_acai",
   "version": "1.0.0",
   "main": "dist/app.js",
- "scripts": {
-  "start": "node dist/app.js",
-  "build": "tsc",
-  "prestart": "npm install && npm run build"
+  "scripts": {
+    "start": "node dist/app.js",
+    "build": "tsc",
+    "prestart": "npm install && npm run build"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.13.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
