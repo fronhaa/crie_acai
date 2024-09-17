@@ -18,9 +18,11 @@ let myModal = new bootstrap.Modal(modal, {
 
 function lists() {
 
-    document.querySelector('body').createElement('meu-payload');
+    const meuPayloadElement = document.createElement('meu-payload');
 
-    let meuPayload = document.querySelector('meu-payload');
+    document.body.appendChild(meuPayloadElement);
+
+    const meuPayload = document.querySelector('meu-payload');
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
