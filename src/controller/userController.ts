@@ -15,7 +15,7 @@ class UserController {
         const user: UserModel | null = await UserModel.findByUsername(username, password);
 
         if (!user) {
-            res.status(401).json({ message: 'Usuário ou senha inválidos' });
+            res.status(401).json({ message: 'Usuário ou senha inválidos', erro: true});
             return;
         }
 
