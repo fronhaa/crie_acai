@@ -21,7 +21,7 @@ class UserController {
             }
             const user = yield userModel_1.UserModel.findByUsername(username, password);
             if (!user) {
-                res.status(401).json({ message: 'Usuário ou senha inválidos' });
+                res.status(401).json({ message: 'Usuário ou senha inválidos', erro: true });
                 return;
             }
             res.status(200).json({ message: 'Login bem-sucedido', profile: user });
