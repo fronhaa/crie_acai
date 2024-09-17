@@ -18,11 +18,9 @@ let myModal = new bootstrap.Modal(modal, {
 
 function lists() {
 
-    const meuPayloadElement = document.createElement('meu-payload');
-
-    document.body.appendChild(meuPayloadElement);
-
     const meuPayload = document.querySelector('meu-payload');
+
+    meuPayload.style.display = 'block';
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -64,11 +62,11 @@ function lists() {
             });
         });
 
-        meuPayload.remove();
+        meuPayload.style.display = 'none';
     })
     .catch(error => {
         console.error('Error:', error)
-        meuPayload.remove();
+        meuPayload.style.display = 'none';
     });
 }
 
@@ -383,5 +381,3 @@ function editar(event) {
 
 btnCloseAlertWarning.onclick = closeAlertWarnig;
 btnRegister.onclick = renderForm;
-
-lists();

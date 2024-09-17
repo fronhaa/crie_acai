@@ -27,6 +27,7 @@ setMenu();
 window.addEventListener('load', () => {
     const payload = document.querySelector('meu-payload');
     if (payload) {
-        payload.remove();
+       payload.style.display = 'none';
+       lists();
     }
 });

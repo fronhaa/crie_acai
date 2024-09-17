@@ -96,7 +96,7 @@ class PayLoad extends HTMLElement {
     constructor() {
         super();
         this.innerHTML = `
-           <div style="position: fixed; top: 0; background: rgb(150 150 150 / 96%); z-index: 1000; height: 100vh; width: 100vw;"><div class="loader"></div></div>
+           <div style="position: fixed; top: 0; background: rgb(150 150 150 / 96%); z-index: 10000; height: 100vh; width: 100vw;"><div class="loader"></div></div>
         `;
     }
 }
