@@ -1,7 +1,7 @@
-const apiUrl = 'https://crie-acai-4.onrender.com';
+const apiUrl = 'http://localhost:3000';
 
 const btnSubmeter = document.querySelector('#btn-submit');
-const divAlertWarning = document.querySelector('.alert-warning') || document.querySelector('.alert-success');
+let divAlertWarning = document.querySelector('.alert-warning') || document.querySelector('.alert-success');
 const btnCloseAlertWarning = document.querySelector('.close');
 
 function sendLogin() {
@@ -29,10 +29,7 @@ function sendLogin() {
             return;
         }
 
-        const userProfile = {
-            user: data.user,
-            role: 'admin'
-        };
+        const userProfile = data.profile;
         
         setCookie('userProfile', JSON.stringify(userProfile), 0.04);
 
@@ -59,7 +56,7 @@ function getCookie(name) {
 }
 
 function errorLogin(data) {
-    if (data.message === 'Usuário ou senha inválidos') {
+    if (data.erro) {
         divAlertWarning.style.display = 'flex';
         divAlertWarning.style.right = '0';
         divAlertWarning.classList.add('show');

@@ -6,7 +6,7 @@ class Header extends HTMLElement {
 
                 <div class="d-flex align-items-center justify-content-between">
                 <a href="home.html" class="logo d-flex align-items-center">
-                    <img src="http://" alt="">
+                    <img src="" alt="">
                     <span class="d-none d-lg-block">Crie Açaí</span>
                 </a>
                 </div>
@@ -23,7 +23,7 @@ class Header extends HTMLElement {
                     <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/profile-img.jpg" alt="Perfil" class="rounded-circle">
+                        <img src="../../public/assets/img/logo.jpg" alt="Perfil" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">Marcelo</span>
                     </a>
 
@@ -74,7 +74,14 @@ class Aside extends HTMLElement {
                 <li class="nav-item">
                     <a class="nav-link nav-menu" href="./payment.html">
                     <i class="bi bi-wallet2"></i>
-                    <span>Pagamento</span>
+                    <span>Métodos de Pagamento</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link nav-menu" href="./measures.html">
+                    <i class="bi bi-rulers"></i>
+                    <span>Medidas</span>
                     </a>
                 </li>
 

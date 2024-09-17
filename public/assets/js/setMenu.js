@@ -8,8 +8,9 @@ function setMenu() {
     const navLink = document.querySelectorAll('.nav-menu');
 
     const aux = {
-        payment: 'pagamento',
-        home: 'dashboard'
+        payment: 'métodos de pagamento',
+        home: 'dashboard',
+        measures: 'medidas'
     };
 
     navLink.forEach((item) => {

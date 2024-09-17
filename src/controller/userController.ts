@@ -1,21 +1,25 @@
 import { Request, Response } from 'express';
+import { UserModel } from '../model/userModel';
 
 class UserController {
-    private users = [
-        {username: 'juca@bala.com.br', password: '123'}
-    ];
 
-    public loginUser(req: Request, res: Response): void {
-        const {username, password} = req.body;
+    public async loginUser(req: Request, res: Response): Promise<void> {
 
-        const user = this.users.find(user => user.username === username && user.password === password);
+        const { username, password } = req.body;
 
-        if(!user) {
-            res.status(200).json({message: 'Usuário ou senha inválidos'});
+        if (!username || !password) {
+            res.status(400).json({ message: 'Usuário e senha são obrigatórios', erro: true});
             return;
         }
 
-        res.status(200).json({message: 'Login bem-sucedido', user: user.username});
+        const user: UserModel | null = await UserModel.findByUsername(username, password);
+
+        if (!user) {
+            res.status(401).json({ message: 'Usuário ou senha inválidos' });
+            return;
+        }
+
+        res.status(200).json({message: 'Login bem-sucedido', profile: user});
     }
 }
 

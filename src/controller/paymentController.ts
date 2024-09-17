@@ -1,30 +1,55 @@
 import { Request, Response } from 'express';
-
-type Payment = {
-    name: string,
-    description: string,
-    type: string,
-    status: boolean,
-    creation: Date,
-    update: Date
-};
+import { PaymentModel } from '../model/paymentModel';
 
 class PaymentController {
-    private payments: Payment[] = [];
 
-    public register(req: Request, res: Response): void {
-        const {name, description, type}: {name: string, description: string, type: string} = req.body;
-        const status: boolean = true;
-        const creation: Date = new Date();
-        const update: Date = new Date();
+    public async create(req: Request, res: Response): Promise<void> {
 
-        this.payments.push({name, description, type, status, creation, update});
+        const { nome, descricao, tipoPagamento } = req.body;
 
-        res.status(200).json({message: 'Método de pagamento criado com sucesso!', data: {name, description, type, status, creation, update}});
+        const payment: PaymentModel | null = await PaymentModel.create(nome, descricao, tipoPagamento);
+
+        if(!payment) {
+            res.status(400).json({message: 'Algo deu errado na exclusão! Tente novamente em alguns segundo.', erro: true});
+        }
+
+        res.status(201).json({ok: true, message: 'Método de pagamento criado com sucesso!', data: payment});
     }
 
-    public getPayments(req: Request, res: Response): void {
-        res.status(200).json({message: 'Métodos de pagamento retornados com sucesso!', data: this.payments});
+    public async getAll(req: Request, res: Response): Promise<void> {
+
+        const payments: PaymentModel[] | [] = await PaymentModel.fetchAll();
+
+        if(!payments) {
+            res.status(204).json({message: 'Nenhum dado encontrado!'});
+        }
+
+        res.status(200).json({message: 'Métodos de pagamento retornados com sucesso!', data: payments});
+    }
+
+    public async delete(req: Request, res: Response): Promise<void> {
+        const id: number = Number(req.params.id);
+
+        const payment: number | null = await PaymentModel.delete(id);
+
+        if(!payment) {
+            res.status(404).json({message: 'Algo deu errado na exclusão! Tente novamente em alguns segundo.'});
+        }
+
+        res.status(200).json({message: 'Métodos de pagamento excluido com sucesso!', data: {id: payment}});
+    }
+
+    public async update(req: Request, res: Response): Promise<void> {
+        const id: number = Number(req.params.id);
+        const { nome, descricao, tipoPagamento } = req.body;
+
+        const payment: PaymentModel | null = await PaymentModel.update(id, nome, descricao, tipoPagamento);
+
+        if(!payment) {
+            res.status(404).json({message: 'Algo deu errado na edição! Tente novamente em alguns segundo.'});
+        }
+
+        res.status(200).json({message: 'Métodos de pagamento editado com sucesso!', data: payment});
     }
 }
 

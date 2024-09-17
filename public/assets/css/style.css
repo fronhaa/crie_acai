@@ -439,7 +439,8 @@ h6 {
 }
 
 .header-nav .nav-profile img {
-  max-height: 36px;
+  max-height: 50px;
+  width: 100%;
 }
 
 .header-nav .nav-profile span {
@@ -1225,3 +1226,136 @@ h6 {
   }
 }
     
+.orange {
+  color: orange;
+}
+
+.excluir {
+  background-color: #f35959 !important;
+  box-shadow: 5px 5px 0px #e93f3f !important;
+}
+
+.button-action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 110px;
+  height: 40px;
+  border: none;
+  padding: 0px 20px;
+  background-color: #5969f3;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #3f50e9;
+  transition-duration: .3s;
+  margin-bottom: 10px;
+}
+
+.svg {
+  width: 13px;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  fill: white;
+  transition-duration: .3s;
+}
+
+.button-action:hover {
+  color: transparent;
+}
+
+.button-action:hover svg {
+  right: 43%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: .3s;
+}
+
+.button-action:active {
+  transform: translate(3px , 3px);
+  transition-duration: .3s;
+  box-shadow: 2px 2px 0px #5969f3;
+}
+
+
+.Btn-create {
+  margin-left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border-radius: calc(45px/2);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background: linear-gradient(144deg,#af40ff,#5b42f3 50%,#00ddeb);
+}
+
+
+.sign {
+  width: 100%;
+  font-size: 2.2em;
+  color: white;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.4em;
+  font-weight: 500;
+  transition-duration: .3s;
+}
+
+.Btn-create:hover {
+  width: 125px;
+  transition-duration: .3s;
+}
+
+.Btn-create:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 15px;
+}
+
+.Btn-create:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 15px;
+}
+
+.Btn-create:active {
+  transform: translate(2px ,2px);
+}
+
+table.dataTable td, table.dataTable th {
+  text-align: center !important; 
+  vertical-align: middle !important;
+}
+
+td:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.remove-tr {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
