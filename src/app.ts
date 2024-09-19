@@ -7,7 +7,7 @@ const server: Express = express();
 
 server.use(cors());
 server.use(express.json());
-server.use('/', router);
+server.use('/api/', router);
 
 export { server };
 
