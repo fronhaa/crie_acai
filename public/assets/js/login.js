@@ -1,4 +1,4 @@
-const apiUrl = 'http://3.19.232.76';
+const apiUrl = 'http://3.19.232.76/api';
 
 const btnSubmeter = document.querySelector('#btn-submit');
 let divAlertWarning = document.querySelector('.alert-warning') || document.querySelector('.alert-success');
